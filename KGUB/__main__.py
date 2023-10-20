@@ -1,3 +1,4 @@
+import sys
 from KGUB import LOGGER, Client, TOKEN
 from KGUB import cogs
 from discord.ext import commands
@@ -10,8 +11,14 @@ async def on_ready():
     await cogs.alive.setup(Client)
     await cogs.attendance.setup(Client)
     await cogs.owo.setup(Client)
+    await cogs.get_link.setup(Client)
+    await cogs.ping.setup(Client)
     LOGGER.info(f"Bot is Ready and Online as {Client.user.name}")
 
 
 if __name__ == "__main__":
-    Client.run(TOKEN)
+    try:
+        Client.run(TOKEN)
+    except KeyboardInterrupt:
+        LOGGER.info("Bot stopped by the user")
+        sys.exit(0)

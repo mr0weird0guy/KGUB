@@ -6,6 +6,10 @@ from discord.ext import commands
 # Loading .env file
 load_dotenv(os.path.join(".", ".env"))
 
+# Clearing the log file
+with open("bot_logs.txt", "w"):
+    pass
+
 FORMAT = "[KGUB] %(message)s"
 logging.basicConfig(
     handlers=[logging.FileHandler("bot_logs.txt"), logging.StreamHandler()],
