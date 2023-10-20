@@ -33,7 +33,6 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 """
-
 disIntents = discord.Intents.default()
 disIntents.message_content = True
 Client = commands.Bot(intents=disIntents, command_prefix="?", help_command=None)
