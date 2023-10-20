@@ -27,6 +27,12 @@ try:
 except KeyError:
     print("Please define the environment variable TOKEN")
     sys.exit(1)
+try:
+    DB_URL = os.environ["DB_URL"]
+    DB_URL = DB_URL.replace("postgres://", "postgresql://", 1)
+except KeyError:
+    print("Please define the environment variable DB_URL")
+    sys.exit(1)
 
 """
 intents = discord.Intents.default()
