@@ -8,6 +8,7 @@ from discord.ext import commands
 async def on_ready():
     # Loading Cogs
     await cogs.alive.setup(Client)
+    await cogs.attendance.setup(Client)
     LOGGER.info(f"Bot is Ready and Online as {Client.user.name}")
 
 
