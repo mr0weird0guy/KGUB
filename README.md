@@ -23,26 +23,10 @@ pip3 install -r requirements.txt
 py -m KGUB
 ```
 
-## Usage
+## Bot Command
 
-- Import the discord library in your Python script:
-```python
-import discord
-from discord.ext import commands
-```
-- Create an instance of the `Bot` class:
 ```python
 bot = commands.Bot(command_prefix='!')
-```
-- Define a command using the `@bot.command()` decorator:
-```python
-@bot.command()
-async def hello(ctx):
-    await ctx.send('Hello, World!')
-```
-- Run the bot using your token:
-```python
-bot.run('your-token-here')
 ```
 ## Sample COG file exp
 
