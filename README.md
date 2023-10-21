@@ -29,7 +29,7 @@ py -m KGUB
 ## Bot Command
 
 ```python
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix='?')
 ```
 ## Sample COG file exp
 
