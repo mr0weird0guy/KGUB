@@ -1,5 +1,7 @@
 from discord.ext import commands
 
+# Ignore this file
+
 
 class GetLink(commands.Cog):
     def __init__(self, bot):
