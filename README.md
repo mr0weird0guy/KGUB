@@ -1,4 +1,6 @@
-# KGUB
+# KGUB - Discord bot by KJ GDSC
+
+![GDSC](https://logogen.gdscasu.com/logos/gdsc-logo.png)
 
 Sample .env file
 
