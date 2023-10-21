@@ -1,5 +1,8 @@
 # KGUB 
 
+![GDSC](https://logogen.gdscasu.com/logos/gdsc-logo.png)
+
+
 ## Introduction
 
 This is a simple Discord bot written in Python using the discord.py library. The bot responds to specific commands and performs certain actions.
