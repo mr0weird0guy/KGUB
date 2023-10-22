@@ -1,7 +1,6 @@
-# KGUB 
+# KGUB
 
 ![GDSC](https://logogen.gdscasu.com/logos/gdsc-logo.png)
-
 
 ## Introduction
 
@@ -11,6 +10,7 @@ This is a simple Discord bot written in Python using the discord.py library. The
 
 - Python 3.11.4 or higher
 - discord.py library
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -20,9 +20,9 @@ pip install -r requirements.txt
 - Install Python from the official website.
 - Install discord.py using pip:
 
-
 ```python
 pip3 install -r requirements.txt
+python -m spacy download en_core_web_sm
 py -m KGUB
 ```
 
@@ -31,6 +31,7 @@ py -m KGUB
 ```python
 bot = commands.Bot(command_prefix='?')
 ```
+
 ## Sample COG file exp
 
 ```python
@@ -56,15 +57,10 @@ async def setup(Client: commands.Bot):
 - `!hello`: The bot responds with "Hello, World!"
 - new features commands arriving soon -->
 
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-
