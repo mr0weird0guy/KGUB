@@ -7,7 +7,7 @@ from discord.ext import commands
 # when bot is ready (Bot start)
 @Client.event
 async def on_ready():
-    # Loading Cogs
+    # Loading Cogs commands
     await cogs.alive.setup(Client)
     await cogs.attendance.setup(Client)
     await cogs.owo.setup(Client)
@@ -16,10 +16,13 @@ async def on_ready():
     await cogs.summup.setup(Client)
     LOGGER.info(f"Bot is Ready and Online as {Client.user.name}")
 
-
+# this is the first thing that runs when the bot is ready
 if __name__ == "__main__":
     try:
+        # This takes the token from the KGUB module and runs it
         Client.run(TOKEN)
+    # If the user cancels the command(Ctrl+C or Delete), it is handled by the except statement.
     except KeyboardInterrupt:
         LOGGER.info("Bot stopped by the user")
         sys.exit(0)
+        # this stops the bot

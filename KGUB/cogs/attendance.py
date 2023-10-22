@@ -22,7 +22,9 @@ class Attendance(commands.Cog):
 
         members = channel.members
 
-        with open(f"{channel.id}_members.csv", mode="w", newline="") as file:
+        with open(
+            f"{channel.id}_members.csv", mode="w", newline="", encoding="utf-8"
+        ) as file:
             writer = csv.writer(file)
             writer.writerow(["ID", "Global Name", "Username", "Nickname"])
             for member in members:
@@ -33,7 +35,7 @@ class Attendance(commands.Cog):
         if args and args.strip().lower() == "excel":
             wb = openpyxl.Workbook()
             ws = wb.active
-            with open(f"{channel.id}_members.csv", "r") as f:
+            with open(f"{channel.id}_members.csv", "r", encoding="utf-8") as f:
                 for row in csv.reader(f):
                     ws.append(row)
 
