@@ -1,7 +1,6 @@
-# KGUB 
+# KGUB
 
 ![GDSC Kristu Jayanti College](https://github.com/KJC-GDSC/KGUB/assets/85097731/5592c432-e39a-4a03-8b0b-6c8d4d4888cc)
-
 
 ## Introduction
 
@@ -11,6 +10,7 @@ This is a simple Discord bot written in Python using the discord.py library. The
 
 - Python 3.11.4 or higher
 - discord.py library
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -20,33 +20,18 @@ pip install -r requirements.txt
 - Install Python from the official website.
 - Install discord.py using pip:
 
-
 ```python
 pip3 install -r requirements.txt
+python -m spacy download en_core_web_sm
 py -m KGUB
 ```
 
-## Usage
+## Bot Command
 
-- Import the discord library in your Python script:
 ```python
-import discord
-from discord.ext import commands
+bot = commands.Bot(command_prefix='?')
 ```
-- Create an instance of the `Bot` class:
-```python
-bot = commands.Bot(command_prefix='!')
-```
-- Define a command using the `@bot.command()` decorator:
-```python
-@bot.command()
-async def hello(ctx):
-    await ctx.send('Hello, World!')
-```
-- Run the bot using your token:
-```python
-bot.run('your-token-here')
-```
+
 ## Sample COG file exp
 
 ```python
@@ -72,15 +57,10 @@ async def setup(Client: commands.Bot):
 - `!hello`: The bot responds with "Hello, World!"
 - new features commands arriving soon -->
 
-
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-
-
-

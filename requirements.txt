@@ -2,3 +2,4 @@ discord
 PyNaCl
 openpyxl
 sqlalchemy
+spacy
