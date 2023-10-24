@@ -12,17 +12,16 @@ class Ping(commands.Cog):
     # parameters:
     # 1st as bot,
     # 2nd as the context
-    async def ping(self: commands.Bot, ctx: commands.Context):
-        # take the time of the call of the command
-        start_time = time.time()
-        # sends a text to the server channel
-        message = await ctx.send("Pinging...")
-        # takes the time of ending of the command call
-        end_time = time.time()
-        # Takes the difference which is the ping time of the command/bot
-        ping_time = round((end_time - start_time) * 1000, 3)
+    async def ping(self,ctx: commands.Context):
+        msg_emoji = ":)" 
+        emojis = ctx.guild.emojis
+        for emoji in emojis:
+            if emoji.name == "belucat":
+                msg_emoji = emoji
+        # gets the latency of the bot in seconds
+        ping_time = self.bot.latency * 1000
         # chaneges the text and update to the time duration of command call and its execution
-        await message.edit(content="PONG: {}ms".format(ping_time))
+        await ctx.reply(f"Pong! : {round(ping_time)}ms \nApparently, I'm quicker than our server members {msg_emoji}")
 
 # this funtion runs as the command is executed
 # bot should be of type commands.Bot
