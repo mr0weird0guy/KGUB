@@ -54,8 +54,11 @@ async def setup(Client: commands.Bot):
 
 ## Commands
 
-- `!hello`: The bot responds with "Hello, World!"
-- new features commands arriving soon -->
+    `?live`
+    `?attendance`
+    `?ping`
+    `?summup`
+    `?popular`
 
 ## Contributing
 
