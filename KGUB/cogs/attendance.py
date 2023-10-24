@@ -80,4 +80,4 @@ async def setup(Client: commands.Bot):
     # Calls the Attendance Object with the parameter as Client which is the command component.
     # The Object is added to the cog(short form for component)
     # Client is the bot which uses this funtion to do the work
-    await bot.add_cog(Attendance(Client))
+    await Client.add_cog(Attendance(Client))
