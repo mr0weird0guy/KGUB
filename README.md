@@ -61,6 +61,11 @@ async def setup(Client: commands.Bot):
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+## Collaborators
+
+![Collaborators](https://contrib.rocks/image?repo=KJC-GDSC/KGUB)
+
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
