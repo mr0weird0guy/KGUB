@@ -11,7 +11,11 @@ class Alive(commands.Cog):
     # ctx should be of type commands.Context
     async def alive(self, ctx: commands.Context):
         # waits for the fuction ot respond with data in right format
-        await ctx.send("Hey {0.author.mention}! How are you?".format(ctx.message))
+        author = ctx.author
+        if author.nick:
+            await ctx.reply("Hey {0.nick}! How are you?".format(author))
+        else:
+            await ctx.reply("Hey {0.name}! How are you?".format(author))
 
 
 # this funtion runs as the command is executed
