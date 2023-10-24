@@ -28,6 +28,33 @@ class TextSummarizer(commands.Cog):
 
         await ctx.send(embed=embed)
 
+    @commands.command()
+    async def summup(self: commands.Bot, ctx: commands.Context):
+        # Check if the command was triggered by a reply
+        if not ctx.message.reference:
+            return await ctx.send(
+                "Please reply to a message to summarize all messages from that message till the last message in the channel."
+            )
+
+        # Get the replied message
+        replied_message = await ctx.fetch_message(ctx.message.reference.message_id)
+
+        # Get all the messages after the replied message in the channel
+        messages = []
+        async for message in ctx.channel.history(after=replied_message):
+            messages.append(message)
+
+        # Combine all the messages into a single string
+        text = "\n".join([message.content for message in messages])
+
+        # Summarize the combined text
+        summary = self.summarize_text(text)
+
+        # Create an embed to display the summary
+        embed = Embed(title="Text Summary", description=summary, color=0x3498DB)
+
+        await ctx.send(embed=embed)
+
     def summarize_text(self, text):
         doc = self.nlp(text)
         sentences = list(doc.sents)
@@ -48,10 +75,5 @@ class TextSummarizer(commands.Cog):
         return summary
 
 
-# this funtion runs as the command is executed
-# bot should be of type commands.Bot
 async def setup(bot: commands.Bot):
-    # Calls the TextSummarizer Object with the parameter as Client which is the command component.
-    # The Object is added to the cog(short form for component)
-    # Client is the bot which uses this funtion to do the work
     await bot.add_cog(TextSummarizer(bot))
