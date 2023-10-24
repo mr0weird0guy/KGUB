@@ -3,3 +3,4 @@ PyNaCl
 openpyxl
 sqlalchemy
 spacy
+python-dotenv
