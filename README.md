@@ -54,11 +54,11 @@ async def setup(Client: commands.Bot):
 
 ## Commands
 
-    `?live`
-    `?attendance`
-    `?ping`
-    `?summup`
-    `?popular`
+`?live` - check if the bot is active
+`?attendance` - gives attendance for active participants in a channel
+`?ping` - checks the ping status
+`?summup` - summerizes a message
+`?popular` - counts and return the number of reactions on top (10 - max) messages
 
 ## Contributing
 
