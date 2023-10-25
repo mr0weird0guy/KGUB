@@ -54,7 +54,7 @@ async def setup(Client: commands.Bot):
 
 ## Commands
 
-`?live` - check if the bot is active<br>
+`?alive` - check if the bot is active<br>
 `?attendance` - gives attendance for active participants in a channel<br>
 `?ping` - checks the ping status<br>
 `?summup` - summerizes a message<br>
