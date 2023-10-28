@@ -15,38 +15,39 @@ class Popular(commands.Cog):
     # parameters:
     # 1st as bot,
     # 2nd as the context
-    async def popular(self: commands.bot, ctx: commands.Context, str : None):
+    async def popular(self: commands.bot, ctx: commands.Context, *dates):
         # takes the current datetime
         now = datetime.utcnow()
         # pattern to match for date
-        pattern = re.compile(r"/d/d-/d/d")
-        if str==None :
-            # no time is mentioned the consider last 7 days
-            end = now
-            start = now - timedelta(days=7)
-        else :
-            args = str.split()
-            # if contains more args then store the dates if they are in the right format
-            start = args[0] if pattern.search(args[0]) else None
-            end = args[1] if pattern.search(args[1]) else None
-            if start == None or end == None :
-            # if the args are not in the right format then retuns error text
-                ctx.send("Command error")
+        pattern = re.compile(r'\d{2}-\d{2}')
+        # no time is mentioned the consider last 7 days
+        end = now
+        start = now - timedelta(days=7)
+        if dates:
+            if dates.__len__() != 2:
+                # if arguments are more or less than 2 then kills the function
+                await ctx.reply(f"I need exactly 2 dates before I start going out with you {ctx.author.mention}")
                 return
+            # if dates are provided by the user then iterate over them
+            for date in dates:
+                if re.fullmatch(pattern, date) != None:
+                    # if the dates are not in the right format then cancel the function call
+                    await ctx.reply("Get this straight {ctx.author.mention},\nDate format should be 'DD-MM'")
+                    return
+            # if the dates are in right format and right count
+            start, end = dates[:2]
 
-        # next_sunday = now + timedelta(days=(6 - now.weekday()))
-
-        # prev_sunday = next_sunday - timedelta(days=7)
-
+# TODO: what does the following line of code do?
         image_reaction_counts = defaultdict(lambda: defaultdict(int))
 
         async for message in ctx.channel.history(after=start, before=end):
-            # reads all the text within the mentioned dates
+            # reads all the text within the mentioned dates and check if any file is attached or not
             if message.attachments:
                 for reaction in message.reactions:
-                    # counts the reaction of those texts
+                    # counts total reaction of attachments
                     image_reaction_counts[message.id][reaction.emoji] += reaction.count
-                    # TODO: each emoji ka count + total count
+                    # counts each reaction
+                    # image_reaction_counts[message.id][reaction.emoji.name] += reaction.emoji.count
 
 # sort the count in descending order
         sorted_image_counts = {
@@ -63,7 +64,7 @@ class Popular(commands.Cog):
 
         for i, (message_id, counts) in enumerate(top_10):
             message = await ctx.fetch_message(message_id)
-            response += "{}. {}:\n\t{}- {}\n".format(
+            response += "{}. {}:\n\tMeme: {}\n\tScore: {}\n".format(
                 i + 1, message.author.mention, message.jump_url, sum(counts.values())
             )
 
