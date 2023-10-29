@@ -42,7 +42,10 @@ class Popular(commands.Cog):
             # if the dates are in right format and right count
             start, end = dates[:2]
 
-        # TODO: what does the following line of code do?
+        # loading text
+        reply = await ctx.reply(f"Don't rush me!\nFinding the best takes time")
+
+        # creating dictionary of dictionaries for each message like a json object
         image_reaction_counts = defaultdict(lambda: defaultdict(int))
 
         async for message in ctx.channel.history(after=start, before=end):
@@ -57,6 +60,8 @@ class Popular(commands.Cog):
             k: dict(sorted(v.items(), key=lambda x: x[1], reverse=True))
             for k, v in image_reaction_counts.items()
         }
+        # loading text
+        await reply.edit(content="Don't rush me!\nFinding the best takes time.")
 
         # takes only the top 10 in count
         top_10 = sorted(
@@ -64,21 +69,28 @@ class Popular(commands.Cog):
         )[:10]
 
         response = ""
-
+        # generate response with index, messageId and count of reactions
         for i, (message_id, counts) in enumerate(top_10):
+            # takes all the messages with attachment
             message = await ctx.fetch_message(message_id)
             score = ""
             for k, v in image_reaction_counts[message.id].items():
                 emoji = f"{(f'<a:{k.name}:{k.id}>' if k.animated else f'<:{k.name}:{k.id}>') if isinstance(k, discord.Emoji) else k}"
-
+                # counts each type of reaction and creates score
                 score += f"{emoji}: {v} "
-            response += "{}. {}:\n\tMeme: {}\n\tScore: {}\n".format(
+
+            response += "{}. {}\n\tMeme: {}\n\tScore: {}\n\t\t{}\n".format(
                 i + 1,
                 message.author.mention,
                 message.jump_url,
+                sum(counts.values()),
                 score,
             )
-
+        
+        # loading text
+        await reply.edit(content="Don't rush me!\nFinding the best takes time..")
+        
+        # formatted response in the form of embed
         embed = Embed(
             title="Top {} posts from {} to {}:".format(
                 top_10.__len__(), start.strftime("%d-%m-23"), end.strftime("%d-%m-23")
@@ -87,7 +99,10 @@ class Popular(commands.Cog):
             color=0x3498DB,
         )
 
-        await ctx.send(embed=embed)
+        # loading text
+        await reply.edit(content="Don't rush me!\nFinding the best takes time...")
+        # final response
+        await reply.edit(content="Here we go!", embed=embed)
 
 
 # this function runs as the command is executed
