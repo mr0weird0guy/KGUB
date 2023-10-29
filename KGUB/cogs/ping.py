@@ -18,6 +18,7 @@ class Ping(commands.Cog):
         for emoji in emojis:
             if emoji.name == "belucat":
                 msg_emoji = emoji
+                break
         # gets the latency of the bot in seconds
         ping_time = self.bot.latency * 1000
         # chaneges the text and update to the time duration of command call and its execution

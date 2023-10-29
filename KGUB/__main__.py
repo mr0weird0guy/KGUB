@@ -10,7 +10,7 @@ async def on_ready():
     # Loading Cogs commands
     await cogs.alive.setup(Client)
     await cogs.attendance.setup(Client)
-    await cogs.owo.setup(Client)
+    # await cogs.owo.setup(Client)
     await cogs.get_link.setup(Client)
     await cogs.ping.setup(Client)
     await cogs.summup.setup(Client)
