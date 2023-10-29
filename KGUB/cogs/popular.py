@@ -60,8 +60,6 @@ class Popular(commands.Cog):
             k: dict(sorted(v.items(), key=lambda x: x[1], reverse=True))
             for k, v in image_reaction_counts.items()
         }
-        # loading text
-        await reply.edit(content="Don't rush me!\nFinding the best takes time.")
 
         # takes only the top 10 in count
         top_10 = sorted(
@@ -87,9 +85,6 @@ class Popular(commands.Cog):
                 score,
             )
         
-        # loading text
-        await reply.edit(content="Don't rush me!\nFinding the best takes time..")
-        
         # formatted response in the form of embed
         embed = Embed(
             title="Top {} posts from {} to {}:".format(
@@ -99,8 +94,6 @@ class Popular(commands.Cog):
             color=0x3498DB,
         )
 
-        # loading text
-        await reply.edit(content="Don't rush me!\nFinding the best takes time...")
         # final response
         await reply.edit(content="Here we go!", embed=embed)
 
