@@ -15,7 +15,7 @@ async def on_ready():
     await cogs.ping.setup(Client)
     await cogs.summup.setup(Client)
     await cogs.popular.setup(Client)
-    # await cogs.fun.setup(Client)
+    await cogs.fun.setup(Client)
     # await cogs.welcomer.setup(Client)
     LOGGER.info(f"Bot is Ready and Online as {Client.user.name}")
 
