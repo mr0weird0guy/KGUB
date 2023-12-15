@@ -1,0 +1,30 @@
+General User Profile:
+Dummy Image
+Name
+Level - Exp
+Bio
+Interests
+Course - Year
+Badges - small gif
+Clubs and Comittees
+
+Club Profile:
+Dummy Image
+Name
+Club Level - Exp
+Role - Sub Team
+Recent Mentionable Activity
+
+
+Profile VIEW commands:
+kgub profile - Open own general profile
+kgub profile clubName or CN - opens own club profile
+kgub profile @mention - opens @mention's general profile
+kgub profile clubName?CN @mention - opens @mention's club profile
+
+
+Profile(self) EDIT commands:
+kgub bio "updated Bio of 25words" - replace the old bio with new bio
+kgub interest add "adds interest max 10" - Add interests to profile
+kgub interest delete "delete interest" - deletes interests from profile
+kgub 
