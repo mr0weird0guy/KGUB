@@ -4,3 +4,4 @@ openpyxl
 sqlalchemy
 spacy
 python-dotenv
+summer-search
