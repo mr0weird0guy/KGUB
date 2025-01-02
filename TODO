@@ -1,0 +1,3 @@
+update roles and change visibility based on sheet data.
+Profile Plan to execute in KGUB/cogs/game/Profile.py
+Host the Project[text](KGUB/__main__.py)

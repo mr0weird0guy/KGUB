@@ -22,14 +22,20 @@ pip install -r requirements.txt
 
 ```python
 pip3 install -r requirements.txt
-python -m spacy download en_core_web_sm
-py -m KGUB
+python -m KGUB
+```
+
+If you face an error mentioning "this system does not have Windows Long Path support enabled."
+run the following command in powershell
+
+```powershell
+New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force
 ```
 
 ## Bot Command
 
 ```python
-bot = commands.Bot(command_prefix='?')
+bot = commands.Bot(command_prefix='kgub')
 ```
 
 ## Sample COG file exp
@@ -54,11 +60,11 @@ async def setup(Client: commands.Bot):
 
 ## Commands
 
-`?alive` - check if the bot is active<br>
-`?attendance` - gives attendance for active participants in a channel<br>
-`?ping` - checks the ping status<br>
-`?summup` - summerizes a message<br>
-`?popular` - counts and return the number of reactions on top (10 - max) messages<br>
+`kgub alive` - check if the bot is active<br>
+`kgub attendance` - gives attendance for active participants in a channel<br>
+`kgub ping` - checks the ping status<br>
+`kgub summup` - summerizes a message<br>
+`kgub popular` - counts and return the number of reactions on top (10 - max) messages<br>
 
 ## Contributing
 
@@ -67,7 +73,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Collaborators
 
 ![Collaborators](https://contrib.rocks/image?repo=KJC-GDSC/KGUB)
-
 
 ## License
 
