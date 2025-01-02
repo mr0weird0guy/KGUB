@@ -57,7 +57,7 @@ disIntents = discord.Intents.default()
 # the connection is of message type
 disIntents.message_content = True
 # Bot function defines the bot activation command
-Client = commands.Bot(intents=disIntents, command_prefix="kgub", help_command=None)
+Client = commands.Bot(intents=disIntents, command_prefix="kgub ", help_command=None)
 # intent is used to define which connectivity needs to be establised
 # command_prefix is used to state when the bot will be called
 # help_command is not defined as it has None value
